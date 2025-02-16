@@ -1,11 +1,9 @@
-# Model Package for Bluesky Instrument Minimal Installation
+# BITS: Template Package for Bluesky Instruments
 
-Model of a Bluesky Data Acquisition Instrument in console, notebook, &
+BITS: **B**luesky **I**nstrument **T**emplate**S**
+
+Template of a Bluesky Data Acquisition Instrument in console, notebook, &
 queueserver.
-
-------------
-![`RE.md`](./.re_md_dict.yml): RunEngine metadata
-------------
 
 ## Installation
 
@@ -22,7 +20,7 @@ Set up the development environment.
 export ENV_NAME=bs_model_env
 conda create -y -n $ENV_NAME python=3.11 pyepics
 conda activate $ENV_NAME
-pip install -e .[all]
+pip install -e ."[all]"
 ```
 
 ## IPython console
