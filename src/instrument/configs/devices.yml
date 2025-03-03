@@ -15,10 +15,57 @@ apstools.devices.SimulatedApsPssShutterWithStatus:
 #   prefix: ioc:Slit1
 #   labels: ["slits"]
 
-# hkl.SimulatedE4CV:
-# - name: sim4c
-#   prefix: ""
-#   labels: ["diffractometer"]
+hklpy2.diffractometer_factory:
+  - name: sim4c2
+    geometry: E4CV
+    labels: ["diffractometer", "hklpy2"]
+  - name: sim6c2
+    geometry: E6C
+    labels: ["diffractometer", "hklpy2"]
+  - name: simk6c2
+    geometry: K6C
+    labels: ["diffractometer", "hklpy2"]
+  - name: fourc2
+    geometry: E4CV
+    prefix: "zgp:"
+    labels: ["diffractometer", "hklpy2"]
+    reals:  # MUST provide in canonical order
+      omega: m30
+      chi: m31
+      phi: m32
+      ttth: m29
+  - name: sixc2
+    geometry: E6C
+    prefix: "zgp:"
+    labels: ["diffractometer", "hklpy2"]
+    reals:  # MUST provide in canonical order
+      # No defined motor assignments, pick different than fourc (m29-32)
+      mu: m23
+      omega: m24
+      chi: m25
+      phi: m26
+      gamma: m27
+      delta: m28
+
+hkl.SimulatedE6C:
+  - name: sim6c
+    prefix: ""
+    labels: ["diffractometer", "hklpy"]
+
+hkl.SimulatedK4CV:
+  - name: simk4c
+    prefix: ""
+    labels: ["diffractometer", "hklpy"]
+
+hkl.SimulatedK6C:
+  - name: simk6c
+    prefix: ""
+    labels: ["diffractometer", "hklpy"]
+
+ophyd.EpicsSignalRO:
+  - name: noisy
+    read_pv: gp:userCalc1
+    labels: ["detectors", "simulator"]
 
 # ophyd.scaler.ScalerCH:
 # - name: scaler1
