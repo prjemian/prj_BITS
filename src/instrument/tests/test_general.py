@@ -68,7 +68,9 @@ def test_iconfig() -> None:
 
     cat_name: str = iconfig.get("DATABROKER_CATALOG")
     assert cat_name is not None
-    assert cat_name == cat.name
+    if cat_name not in databroker.catalog:
+        cat_name = TEMPORARY_CATALOG_NAME	
+    assert cat.name == cat_name
 
     assert "RUN_ENGINE" in iconfig
     assert "DEFAULT_METADATA" in iconfig["RUN_ENGINE"]
