@@ -4,6 +4,7 @@ Test that instrument can be started.
 Here is just enough testing to get a CI workflow started. More are possible.
 """
 
+import databroker
 import pytest
 
 from ..core.catalog_init import TEMPORARY_CATALOG_NAME
