@@ -2,13 +2,9 @@
 Storage-backed Dictionary
 =========================
 
-A dictionary that writes its contents to YAML file.
+A dictionary that syncs to storage.
 
-Replaces ``bluesky.utils.PersistentDict``.
-
-* Contents must be JSON serializable.
-* Contents stored in a single human-readable YAML file.
-* Sync to disk shortly after dictionary is updated.
+Look for this upstream in apstools v1.7.3+.
 
 .. autosummary::
 
@@ -34,14 +30,7 @@ logger.bsdev(__file__)
 
 class StoredDict(collections.abc.MutableMapping):
     """
-    A MutableMapping which syncs it contents to storage.
-
-    The contents are stored as a single YAML file.
-
-    Note that when an item is *mutated* it is not immediately synced. The
-    mapping is written to storage afer a delay period. The delay period is
-    chosen long enough to allow multiple updates to the mapping before a single
-    write but short enough to ensure prompt backup of the mapping.
+    Dictionary that syncs to storage.
 
     .. autosummary::
 
