@@ -6,6 +6,7 @@ Here is just enough testing to get a CI workflow started. More are possible.
 
 import pytest
 
+from ..core.catalog_init import TEMPORARY_CATALOG_NAME
 from ..plans.sim_plans import sim_count_plan
 from ..plans.sim_plans import sim_print_plan
 from ..plans.sim_plans import sim_rel_scan_plan
