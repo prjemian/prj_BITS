@@ -2,7 +2,7 @@
 Storage-backed Dictionary
 =========================
 
-A dictionary that syncs to storage.
+A dictionary that writes its contents to YAML file.
 
 Look for this upstream in apstools v1.7.3+.
 

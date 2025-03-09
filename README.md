@@ -1,6 +1,6 @@
-# BITS: Template Package for Bluesky Instruments
+# prj_BITS: Template Package for Bluesky Instruments
 
-BITS: **B**luesky **I**nstrument **T**emplate**S**
+prj_BITS: **B**luesky **I**nstrument **T**emplate**S**
 
 Template of a Bluesky Data Acquisition Instrument in console, notebook, &
 queueserver.
@@ -17,7 +17,7 @@ cd bs_model_instrument
 Set up the development environment.
 
 ```bash
-export ENV_NAME=bs_model_env
+export ENV_NAME=bits
 conda create -y -n $ENV_NAME python=3.11 pyepics
 conda activate $ENV_NAME
 pip install -e ."[all]"
