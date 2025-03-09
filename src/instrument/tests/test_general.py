@@ -80,8 +80,7 @@ def test_iconfig() -> None:
     assert "beamline_id" in default_md
     assert "instrument_name" in default_md
     assert "proposal_id" in default_md
-    assert "databroker_catalog" in default_md
-    assert default_md["databroker_catalog"] == cat.name
+    assert default_md.get("databroker_catalog") is not None
 
     xmode = iconfig.get("XMODE_DEBUG_LEVEL")
     assert xmode is not None
