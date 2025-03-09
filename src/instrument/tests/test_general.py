@@ -4,8 +4,10 @@ Test that instrument can be started.
 Here is just enough testing to get a CI workflow started. More are possible.
 """
 
+import databroker
 import pytest
 
+from ..core.catalog_init import TEMPORARY_CATALOG_NAME
 from ..plans.sim_plans import sim_count_plan
 from ..plans.sim_plans import sim_print_plan
 from ..plans.sim_plans import sim_rel_scan_plan
@@ -61,7 +63,7 @@ def test_iconfig():
     assert cat_name is not None
     if cat_name not in databroker.catalog:
         cat_name = TEMPORARY_CATALOG_NAME
-    assert cat_name == cat.name
+    assert cat.name == cat_name
 
     assert "RUN_ENGINE" in iconfig
     assert "DEFAULT_METADATA" in iconfig["RUN_ENGINE"]

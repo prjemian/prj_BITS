@@ -73,7 +73,7 @@ def connect_scan_id_pv(RE, pv: str = None):
         RE.md["scan_id"] = scan_id_epics.get()  # set scan_id from EPICS
     except TimeoutError as reason:
         logger.warning("Using internal 'scan_id': PV='%s', reason=%s", pv, reason)
-    except TypeError:
+    except TypeError as reason:
         # Ignore PersistentDict errors that only raise when making the docs
         logger.warning("Using internal 'scan_id': reason=%s", reason)
         print(f"Using internal 'scan_id' ({reason})")

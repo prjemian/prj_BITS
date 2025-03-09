@@ -1,4 +1,4 @@
-# Guarneri-style device YAML configuration
+# ophyd-style devices at jemian.org
 
 apstools.devices.ad_creator:
 
@@ -41,7 +41,7 @@ apstools.devices.SimulatedApsPssShutterWithStatus:
 
 apstools.synApps.Optics2Slit2D_HV:
 - name: slit1
-  prefix: ioc:Slit1
+  prefix: gp:Slit1
   labels: ["slits"]
 
 apstools.synApps.SscanDevice: [{ name: scans, prefix: "gp:" }]
