@@ -1,6 +1,6 @@
-# BITS: Template Package for Bluesky Instruments
+# prj_BITS: Template Package for Bluesky Instruments
 
-BITS: **B**luesky **I**nstrument **T**emplate**S**
+prj_BITS: **B**luesky **I**nstrument **T**emplate**S**
 
 Template of a Bluesky Data Acquisition Instrument in console, notebook, &
 queueserver.
