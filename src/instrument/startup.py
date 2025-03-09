@@ -23,7 +23,7 @@ from .plans import *  # noqa: F403
 from .utils.config_loaders import iconfig
 from .utils.helper_functions import register_bluesky_magics
 from .utils.helper_functions import running_in_queueserver
-from .utils.make_devices_yaml import make_devices
+from .utils.make_devices_yaml import make_devices  # noqa: F401
 
 logger = logging.getLogger(__name__)
 logger.bsdev(__file__)
@@ -39,9 +39,6 @@ if iconfig.get("SPEC_DATA_FILES") is not None:
     from .callbacks.spec_data_file_writer import newSpecFile  # noqa: F401
     from .callbacks.spec_data_file_writer import spec_comment  # noqa: F401
     from .callbacks.spec_data_file_writer import specwriter  # noqa: F401
-
-if iconfig.get("USE_BLUESKY_MAGICS", False):
-    register_bluesky_magics()
 
 # These imports must come after the above setup.
 if running_in_queueserver():
@@ -59,17 +56,3 @@ else:
     from bluesky import plans as bp  # noqa: F401
 
     from .utils.controls_setup import oregistry  # noqa: F401
-
-    oregistry.warn_duplicates = False
-
-
-def prepare_controls():
-    """Get the local controls here."""
-    from .plans.local_controls import setup_devices
-
-    yield from make_devices()
-    yield from setup_devices()
-
-
-RE(prepare_controls())  # create all the ophyd-style control devices
-logger.info("%s Bluesky session ready to use.", "*" * 40)
