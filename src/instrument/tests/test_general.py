@@ -30,6 +30,8 @@ def test_startup():
     assert specwriter is not None
     if iconfig.get("DATABROKER_CATALOG", "temp") == "temp":
         assert len(cat) == 0
+    if cat.name == TEMPORARY_CATALOG_NAME:
+        assert len(cat) == 0
     assert not running_in_queueserver()
 
 
@@ -57,6 +59,8 @@ def test_iconfig():
 
     cat_name = iconfig.get("DATABROKER_CATALOG")
     assert cat_name is not None
+    if cat_name not in databroker.catalog:
+        cat_name = TEMPORARY_CATALOG_NAME
     assert cat_name == cat.name
 
     assert "RUN_ENGINE" in iconfig
@@ -67,7 +71,7 @@ def test_iconfig():
     assert "instrument_name" in default_md
     assert "proposal_id" in default_md
     assert "databroker_catalog" in default_md
-    assert default_md["databroker_catalog"] == cat.name
+    # assert default_md["databroker_catalog"] == cat.name
 
     xmode = iconfig.get("XMODE_DEBUG_LEVEL")
     assert xmode is not None

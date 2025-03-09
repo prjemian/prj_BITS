@@ -2,13 +2,9 @@
 Storage-backed Dictionary
 =========================
 
-A dictionary that writes its contents to YAML file.
+A dictionary that syncs to storage.
 
-Replaces ``bluesky.utils.PersistentDict``.
-
-* Contents must be JSON serializable.
-* Contents stored in a single human-readable YAML file.
-* Sync to disk shortly after dictionary is updated.
+Look for this upstream in apstools v1.7.3+.
 
 .. autosummary::
 

@@ -57,4 +57,6 @@ else:
 
     from .utils.controls_setup import oregistry  # noqa: F401
 
-RE(make_devices())  # create all the ophyd-style control devices
+    # oregistry.warn_duplicates = False
+
+logger.info("%s Bluesky session ready to use.", "*" * 40)
