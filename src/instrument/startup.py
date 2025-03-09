@@ -56,3 +56,7 @@ else:
     from bluesky import plans as bp  # noqa: F401
 
     from .utils.controls_setup import oregistry  # noqa: F401
+
+    # oregistry.warn_duplicates = False
+
+logger.info("%s Bluesky session ready to use.", "*" * 40)

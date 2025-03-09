@@ -33,6 +33,8 @@ def test_startup(runengine_with_devices: object) -> None:
 
     if iconfig.get("DATABROKER_CATALOG", "temp") == "temp":
         assert len(cat) == 0
+    if cat.name == TEMPORARY_CATALOG_NAME:
+        assert len(cat) == 0
     assert not running_in_queueserver()
 
 

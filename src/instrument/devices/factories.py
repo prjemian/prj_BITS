@@ -180,15 +180,15 @@ def motors(
         Dictionary of additional keyword arguments.  This is included
         with each EpicsMotor object.
     """
+    if "{" not in names:
+        names += "{}"  # Append required formatting spec.
     if prefix is None:
         raise ValueError("Must define a string value for 'prefix'.")
 
-    kwargs["names"] = names or "m{}"
-    kwargs["prefix"] = prefix
     kwargs.update(
         {
             "prefix": prefix,
-            "names": names or "m{}",
+            "names": names,
             "first": first,
             "last": last,
             "creator": "ophyd.EpicsMotor",
