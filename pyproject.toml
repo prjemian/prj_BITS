@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 copyright = "2014-2025, APS"
 
 [project]
-name = "instrument"
+name = "apsbits"
 dynamic = ["version"]
 description = "Model of a Bluesky Data Acquisition Instrument in console, notebook, & queueserver."
 authors = [
@@ -40,6 +40,7 @@ dependencies = [
     "bluesky-queueserver",
     "bluesky-widgets",
     "bluesky",
+    "caproto",
     "databroker ==1.2.5",
     "guarneri",
     "ipython",
@@ -50,6 +51,9 @@ dependencies = [
     "pyRestTable",
     "pysumreg",
     "qtpy",
+    "toml",
+    "tomli",
+    "tomli-w",
 ]
 
 [project.optional-dependencies]
@@ -71,14 +75,12 @@ doc = [
     "sphinx",
 ]
 
-all = ["instrument[dev,doc]"]
+all = ["apsbits[dev,doc]"]
 
 [project.urls]
 "Homepage" = "https://BCDA-APS.github.io/BITS/"
 "Bug Tracker" = "https://github.com/BCDA-APS/BITS/issues"
 
-# [project.scripts]
-# instrument = "instrument.app:main"
 
 [tool.black]
 line-length = 115
@@ -221,10 +223,13 @@ skip-magic-trailing-comma = false
 line-ending = "auto"
 
 [tool.setuptools]
-package-dir = {"instrument" = "src/instrument"}
+package-dir = {"apsbits" = "src/apsbits"}
 
 [tool.setuptools.package-data]
-"*" = ["*.yml"]
+"*" = ["*.yml", "*.sh"]
 
 [tool.setuptools_scm]
-write_to = "src/instrument/_version.py"
+write_to = "src/apsbits/_version.py"
+
+[project.scripts]
+create-bits = "apsbits.utils.create_new_instrument:main"
